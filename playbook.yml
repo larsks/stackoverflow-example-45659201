@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - assert:
+        that: target_address is defined
+        msg: "You must defined 'target_address'"
+
+    - findif:
+        address: '{{ target_address }}'
+      register: result
+
+    - debug:
+        var: result
